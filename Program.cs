@@ -12,21 +12,18 @@
             int isPresent = 1;
             const int EMP_RATE_PER_HR = 20;
             Random random = new Random();
-            int employeeAttendence = random.Next(0, 2);
-            if (employeeAttendence == IS_FULL_TIME)
+            int employeeAttendence = random.Next(0, 3);
+            switch (employeeAttendence)
             {
-                Console.WriteLine("fulltime employee attendence is present");
+                case IS_FULL_TIME:
                 empHrs = 8;
-            }
-            else if (employeeAttendence == IS_PART_TIME)
-            {
-                Console.WriteLine("Parttime employee attendence is Present");
+                break;
+                case IS_PART_TIME:
                 empHrs = 4;
-            }
-            else
-            {
-                Console.WriteLine("employee attendence is absent");
-
+                break;
+                default:
+                    empHrs = 0;
+                break;
             }
             empWage = EMP_RATE_PER_HR* empHrs;
             Console.WriteLine("Employee wage is:" + empWage);
